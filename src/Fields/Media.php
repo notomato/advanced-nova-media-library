@@ -182,7 +182,7 @@ class Media extends Field
         $remainingIds = collect($data)->filter(function ($value) {
             return !$value instanceof UploadedFile;
         })->map(function ($value) {
-            return (int)$value;
+            return $value;
         });
 
         $medias->pluck('id')->diff($remainingIds)->each(function ($id) use ($medias) {
